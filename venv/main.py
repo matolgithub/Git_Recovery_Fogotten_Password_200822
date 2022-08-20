@@ -1,4 +1,41 @@
 from string import digits, punctuation, ascii_letters
 
-symbols = digits + punctuation + ascii_letters
-print(symbols)
+# symbols = digits + punctuation + ascii_letters
+# print(symbols)
+
+
+def brute_excel_doc():
+    print('--------Hello, friend!---------')
+
+    try:
+        password_length = input('Введите длину пароля (мин.-макс.), например, 2-5: ')
+        password_length = [int(item) for item in password_length.split("-")]
+    except:
+        print('Проверьте введённые данные!')
+
+    print('Введите 1\nЕсли в пароле только цифры\nВведите 2\nЕсли в пароле только буквы\nВведите 3\nЕсли в пароле '
+          ' цифры и буквы\nВведите 4\nЕсли в пароле цифры, буквы и спецсимволы.')
+
+    try:
+        choice = int(input(': '))
+        if choice == 1:
+            possible_symbols = digits
+        elif choice == 2:
+            possible_symbols = ascii_letters
+        elif choice == 3:
+            possible_symbols = digits + ascii_letters
+        elif choice == 4:
+            possible_symbols = digits + ascii_letters + punctuation
+        else:
+            possible_symbols = 'Что-то не то ввёл....'
+        print(possible_symbols)
+    except:
+        print(possible_symbols)
+
+
+def main():
+    brute_excel_doc()
+
+
+if __name__ == '__main__':
+    main()
